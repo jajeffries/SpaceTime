@@ -1,0 +1,15 @@
+C:\workspace\personal\SpaceTime\BodyIndexBasics-WPF\bin\AnyCPU\Debug\SpaceTime.exe.config
+C:\workspace\personal\SpaceTime\BodyIndexBasics-WPF\bin\AnyCPU\Debug\SpaceTime.exe
+C:\workspace\personal\SpaceTime\BodyIndexBasics-WPF\bin\AnyCPU\Debug\SpaceTime.pdb
+C:\workspace\personal\SpaceTime\BodyIndexBasics-WPF\bin\AnyCPU\Debug\Microsoft.Kinect.dll
+C:\workspace\personal\SpaceTime\BodyIndexBasics-WPF\bin\AnyCPU\Debug\Microsoft.Kinect.xml
+C:\workspace\personal\SpaceTime\BodyIndexBasics-WPF\obj\Debug\SpaceTime.csprojResolveAssemblyReference.cache
+C:\workspace\personal\SpaceTime\BodyIndexBasics-WPF\obj\Debug\MainWindow.baml
+C:\workspace\personal\SpaceTime\BodyIndexBasics-WPF\obj\Debug\MainWindow.g.cs
+C:\workspace\personal\SpaceTime\BodyIndexBasics-WPF\obj\Debug\App.g.cs
+C:\workspace\personal\SpaceTime\BodyIndexBasics-WPF\obj\Debug\SpaceTime_MarkupCompile.cache
+C:\workspace\personal\SpaceTime\BodyIndexBasics-WPF\obj\Debug\SpaceTime.g.resources
+C:\workspace\personal\SpaceTime\BodyIndexBasics-WPF\obj\Debug\SpaceTime.Properties.Resources.resources
+C:\workspace\personal\SpaceTime\BodyIndexBasics-WPF\obj\Debug\SpaceTime.csproj.GenerateResource.Cache
+C:\workspace\personal\SpaceTime\BodyIndexBasics-WPF\obj\Debug\SpaceTime.exe
+C:\workspace\personal\SpaceTime\BodyIndexBasics-WPF\obj\Debug\SpaceTime.pdb
