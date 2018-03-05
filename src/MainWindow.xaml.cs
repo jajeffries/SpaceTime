@@ -9,7 +9,9 @@ namespace SpaceTime
 {
   public partial class MainWindow : Window, INotifyPropertyChanged
   {
-    private const int BytesPerPixel = 4;
+	  private readonly BackgroundWorker _worker = new BackgroundWorker();
+
+		private const int BytesPerPixel = 4;
 
     private KinectSensor _kinectSensor;
     private BodyIndexFrameReader _bodyIndexFrameReader;
@@ -73,33 +75,29 @@ namespace SpaceTime
       }
     }
 
-    private void Reader_FrameArrived(object sender, BodyIndexFrameArrivedEventArgs e)
-    {
-      using (var bodyIndexFrame = e.FrameReference.AcquireFrame())
-      {
-        if (bodyIndexFrame != null)
-        {
-          using (var bodyIndexBuffer = bodyIndexFrame.LockImageBuffer())
-          {
-            if (FrameIsCorrectSize(bodyIndexBuffer))
-            {
-              var frame = _frameFactory.Build(bodyIndexBuffer.UnderlyingBuffer, (int)bodyIndexBuffer.Size);
-              _frameBuffer.Add(frame);
-              _frameBuffer.Render(imagePixels =>
-              {
-                _bodyIndexBitmap.WritePixels(
-                  new Int32Rect(0, 0, _bodyIndexBitmap.PixelWidth, _bodyIndexBitmap.PixelHeight),
-                  imagePixels,
-                  _bodyIndexBitmap.PixelWidth * BytesPerPixel,
-                  0);
-              });
-            }
-          }
-        }
-      }
-    }
+	  private void Reader_FrameArrived(object sender, BodyIndexFrameArrivedEventArgs e)
+	  {
+		  using (var bodyIndexFrame = e.FrameReference.AcquireFrame())
+		  {
+			  if (bodyIndexFrame == null) return;
+			  using (var bodyIndexBuffer = bodyIndexFrame.LockImageBuffer())
+			  {
+				  if (!FrameIsCorrectSize(bodyIndexBuffer)) return;
+				  var frame = _frameFactory.Build(bodyIndexBuffer.UnderlyingBuffer, (int) bodyIndexBuffer.Size);
+				  _frameBuffer.Add(frame);
+				  _frameBuffer.Render(imagePixels =>
+				  {
+					  _bodyIndexBitmap.WritePixels(
+						  new Int32Rect(0, 0, _bodyIndexBitmap.PixelWidth, _bodyIndexBitmap.PixelHeight),
+						  imagePixels,
+						  _bodyIndexBitmap.PixelWidth * BytesPerPixel,
+						  0);
+				  });
+				}
+		  }
+	  }
 
-    private bool FrameIsCorrectSize(KinectBuffer bodyIndexBuffer)
+	  private bool FrameIsCorrectSize(KinectBuffer bodyIndexBuffer)
     {
       return _bodyIndexFrameDescription.Width * _bodyIndexFrameDescription.Height == bodyIndexBuffer.Size;
     }

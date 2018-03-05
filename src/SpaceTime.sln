@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceTime", "SpaceTime.csproj", "{A979DC2F-45C6-4141-9A15-E7540A069709}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceTime.Tests", "..\tests\SpaceTime.Tests\SpaceTime.Tests.csproj", "{8EDF4429-251A-416D-BB68-93F227191BCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceTime.Frames", "SpaceTime.Frames\SpaceTime.Frames.csproj", "{F16B1E3F-8764-4BBB-A280-A0175BD72052}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +19,19 @@ Global
 		{A979DC2F-45C6-4141-9A15-E7540A069709}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A979DC2F-45C6-4141-9A15-E7540A069709}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A979DC2F-45C6-4141-9A15-E7540A069709}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EDF4429-251A-416D-BB68-93F227191BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EDF4429-251A-416D-BB68-93F227191BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EDF4429-251A-416D-BB68-93F227191BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EDF4429-251A-416D-BB68-93F227191BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F16B1E3F-8764-4BBB-A280-A0175BD72052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F16B1E3F-8764-4BBB-A280-A0175BD72052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F16B1E3F-8764-4BBB-A280-A0175BD72052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F16B1E3F-8764-4BBB-A280-A0175BD72052}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2A86E5E-0B74-42DE-AE5B-4012D653B820}
 	EndGlobalSection
 EndGlobal

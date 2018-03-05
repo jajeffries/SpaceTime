@@ -70,9 +70,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Frames\Frame.cs" />
-    <Compile Include="Frames\FrameBuffer.cs" />
-    <Compile Include="Frames\FrameFactory.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -111,6 +108,12 @@
     <Resource Include="Images\ScreenshotHover.png" />
     <Resource Include="Images\ScreenshotNormal.png" />
     <Resource Include="Images\Status.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="SpaceTime.Frames\SpaceTime.Frames.csproj">
+      <Project>{f16b1e3f-8764-4bbb-a280-a0175bd72052}</Project>
+      <Name>SpaceTime.Frames</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
