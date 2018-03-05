@@ -31,3 +31,13 @@ C:\workspace\personal\SpaceTime\src\obj\Debug\SpaceTime.exe
 C:\workspace\personal\SpaceTime\src\obj\Debug\SpaceTime.pdb
 C:\workspace\personal\SpaceTime\src\bin\AnyCPU\Debug\SpaceTime.Frames.dll
 C:\workspace\personal\SpaceTime\src\bin\AnyCPU\Debug\SpaceTime.Frames.pdb
+C:\workspace\personal\SpaceTime\src\bin\AnyCPU\Debug\System.Reactive.Core.dll
+C:\workspace\personal\SpaceTime\src\bin\AnyCPU\Debug\System.Reactive.Interfaces.dll
+C:\workspace\personal\SpaceTime\src\bin\AnyCPU\Debug\System.Reactive.Linq.dll
+C:\workspace\personal\SpaceTime\src\bin\AnyCPU\Debug\System.Reactive.PlatformServices.dll
+C:\workspace\personal\SpaceTime\src\bin\AnyCPU\Debug\System.Reactive.Windows.Threading.dll
+C:\workspace\personal\SpaceTime\src\bin\AnyCPU\Debug\System.Reactive.Core.xml
+C:\workspace\personal\SpaceTime\src\bin\AnyCPU\Debug\System.Reactive.Interfaces.xml
+C:\workspace\personal\SpaceTime\src\bin\AnyCPU\Debug\System.Reactive.Linq.xml
+C:\workspace\personal\SpaceTime\src\bin\AnyCPU\Debug\System.Reactive.PlatformServices.xml
+C:\workspace\personal\SpaceTime\src\bin\AnyCPU\Debug\System.Reactive.Windows.Threading.xml

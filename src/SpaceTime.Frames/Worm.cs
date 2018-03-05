@@ -22,16 +22,18 @@ namespace SpaceTime.Frames
 			get
 			{
 				var outputFrame = _frames.First().BodyIndexPixels;
+				var count = 0;
 				foreach (var frame in _frames.Skip(1).Where((f, i) => i % 2 == 0))
 				{
-					CombineFrames(outputFrame, frame);
+					CombineFrames(outputFrame, frame, count);
+					count++;
 				}
 
 				return outputFrame;
 			}
 		}
 
-		private void CombineFrames(uint[] outputFrame, Frame frame)
+		private void CombineFrames(uint[] outputFrame, Frame frame, int frameCount)
 		{
 			var frameBodyIndexPixels = frame.BodyIndexPixels;
 			for (var i = 0; i < outputFrame.Length; i++)

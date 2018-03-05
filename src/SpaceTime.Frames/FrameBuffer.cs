@@ -6,17 +6,11 @@ namespace SpaceTime.Frames
 {
 	public class FrameBuffer
 	{
-		private const int NoOfFramesToStore = 50;
-
-		private readonly Queue<Frame> _frames = new Queue<Frame>(NoOfFramesToStore);
+		private readonly IList<Frame> _frames = new List<Frame>();
 
 		public void Add(Frame frame)
 		{
-			_frames.Enqueue(frame);
-			if (_frames.Count() > NoOfFramesToStore)
-			{
-				_frames.Dequeue();
-			}
+			_frames.Add(frame);
 		}
 
 		public void Render(Action<uint[]> displayImage)

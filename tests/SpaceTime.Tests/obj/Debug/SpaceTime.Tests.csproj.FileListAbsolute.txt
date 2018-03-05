@@ -6,3 +6,5 @@ C:\workspace\personal\SpaceTime\tests\SpaceTime.Tests\obj\Debug\SpaceTime.Tests.
 C:\workspace\personal\SpaceTime\tests\SpaceTime.Tests\obj\Debug\SpaceTime.Tests.csproj.CoreCompileInputs.cache
 C:\workspace\personal\SpaceTime\tests\SpaceTime.Tests\obj\Debug\SpaceTime.Tests.dll
 C:\workspace\personal\SpaceTime\tests\SpaceTime.Tests\obj\Debug\SpaceTime.Tests.pdb
+C:\workspace\personal\SpaceTime\tests\SpaceTime.Tests\bin\Debug\SpaceTime.Frames.dll
+C:\workspace\personal\SpaceTime\tests\SpaceTime.Tests\bin\Debug\SpaceTime.Frames.pdb

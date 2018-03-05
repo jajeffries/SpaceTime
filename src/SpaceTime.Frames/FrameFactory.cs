@@ -16,26 +16,23 @@ namespace SpaceTime.Frames
       0xFF808000
     };
 
-    public Frame Build(IntPtr bodyIndexFrameData, int bodyIndexFrameDataSize)
+    public Frame Build(byte[] bodyIndexFrameData)
     {
-      var bodyIndexPixels = CopyPixels(bodyIndexFrameData, bodyIndexFrameDataSize);
+      var bodyIndexPixels = CopyPixels(bodyIndexFrameData);
       return new Frame(bodyIndexPixels);
     }
 
-    private unsafe uint[] CopyPixels(IntPtr bodyIndexFrameData, int bodyIndexFrameDataSize)
+    private unsafe uint[] CopyPixels(byte[] frameData)
     {
-      var frameData = (byte*) bodyIndexFrameData;
+	    var bodyIndexFrameDataSize = frameData.Length;
+	    var bodyIndexPixels = new uint[bodyIndexFrameDataSize];
+	    for (var i = 0; i < bodyIndexFrameDataSize; ++i)
+	    {
+		    SetColourForSourcePixel(frameData[i], bodyIndexPixels, i);
 
-      var bodyIndexPixels = new uint[bodyIndexFrameDataSize];
-      for (var i = 0; i < bodyIndexFrameDataSize; ++i)
-      {
-        if (frameData != null)
-        {
-	        SetColourForSourcePixel(frameData[i], bodyIndexPixels, i);
-        }
-      }
+	    }
 
-      return bodyIndexPixels;
+	    return bodyIndexPixels;
     }
 
 	  private void SetColourForSourcePixel(byte currentFrameData, uint[] bodyIndexPixels, int offsetInFrame)
