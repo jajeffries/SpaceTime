@@ -1,0 +1,8 @@
+C:\workspace\personal\SpaceTime\tests\SpaceTime.Tests\bin\Debug\SpaceTime.Tests.dll
+C:\workspace\personal\SpaceTime\tests\SpaceTime.Tests\bin\Debug\SpaceTime.Tests.pdb
+C:\workspace\personal\SpaceTime\tests\SpaceTime.Tests\bin\Debug\nunit.framework.dll
+C:\workspace\personal\SpaceTime\tests\SpaceTime.Tests\bin\Debug\nunit.framework.xml
+C:\workspace\personal\SpaceTime\tests\SpaceTime.Tests\obj\Debug\SpaceTime.Tests.csprojResolveAssemblyReference.cache
+C:\workspace\personal\SpaceTime\tests\SpaceTime.Tests\obj\Debug\SpaceTime.Tests.csproj.CoreCompileInputs.cache
+C:\workspace\personal\SpaceTime\tests\SpaceTime.Tests\obj\Debug\SpaceTime.Tests.dll
+C:\workspace\personal\SpaceTime\tests\SpaceTime.Tests\obj\Debug\SpaceTime.Tests.pdb

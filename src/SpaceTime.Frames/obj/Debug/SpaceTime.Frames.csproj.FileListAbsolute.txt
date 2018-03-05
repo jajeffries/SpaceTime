@@ -1,0 +1,6 @@
+C:\workspace\personal\SpaceTime\src\SpaceTime.Frames\bin\Debug\SpaceTime.Frames.dll
+C:\workspace\personal\SpaceTime\src\SpaceTime.Frames\bin\Debug\SpaceTime.Frames.pdb
+C:\workspace\personal\SpaceTime\src\SpaceTime.Frames\obj\Debug\SpaceTime.Frames.csprojResolveAssemblyReference.cache
+C:\workspace\personal\SpaceTime\src\SpaceTime.Frames\obj\Debug\SpaceTime.Frames.csproj.CoreCompileInputs.cache
+C:\workspace\personal\SpaceTime\src\SpaceTime.Frames\obj\Debug\SpaceTime.Frames.dll
+C:\workspace\personal\SpaceTime\src\SpaceTime.Frames\obj\Debug\SpaceTime.Frames.pdb
