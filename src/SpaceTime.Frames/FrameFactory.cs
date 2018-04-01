@@ -16,7 +16,7 @@ namespace SpaceTime.Frames
       0xFF808000
     };
 
-    public Frame Build(byte[] bodyIndexFrameData)
+    public Frame Build(byte[] bodyIndexFrameData, byte[] colourFrameData)
     {
       var bodyIndexPixels = CopyPixels(bodyIndexFrameData);
       return new Frame(bodyIndexPixels);

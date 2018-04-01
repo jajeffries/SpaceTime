@@ -13,11 +13,12 @@ namespace SpaceTime
   public partial class MainWindow : Window, INotifyPropertyChanged
   {
 	  private const int BytesPerPixel = 4;
-	  private const int WindowSize = 50;
+	  private const int WindowSize = 30;
 
 	  private KinectSensor _kinectSensor;
     private BodyIndexFrameReader _bodyIndexFrameReader;
-	  private readonly WriteableBitmap _bodyIndexBitmap;
+	  private readonly ColorFrameReader _colorFrameReader;
+		private readonly WriteableBitmap _bodyIndexBitmap;
 
 	  private readonly FrameFactory _frameFactory = new FrameFactory();
 	  private readonly IDisposable _closeStreamDisposable;
@@ -28,20 +29,29 @@ namespace SpaceTime
       _bodyIndexFrameReader = _kinectSensor.BodyIndexFrameSource.OpenReader();
       var bodyIndexFrameDescription = _kinectSensor.BodyIndexFrameSource.FrameDescription;
       _bodyIndexBitmap = new WriteableBitmap(bodyIndexFrameDescription.Width, bodyIndexFrameDescription.Height, 96.0, 96.0, PixelFormats.Bgr32, null);
-      _kinectSensor.Open();
+	    _colorFrameReader = _kinectSensor.ColorFrameSource.OpenReader();
 
-
-      DataContext = this;
+	    _kinectSensor.Open();
+			DataContext = this;
       InitializeComponent();
 
-	    _closeStreamDisposable = Observable.FromEventPattern<BodyIndexFrameArrivedEventArgs>(
+	    var colourFrames = Observable.FromEventPattern<ColorFrameArrivedEventArgs>(
+		    h => _colorFrameReader.FrameArrived += h,
+		    h => { })
+		    .Select(colourFrame => ReadColourFrame(colourFrame, bodyIndexFrameDescription))
+		    .Where(IsValidFrame);
+
+	    var bodyIndexFrames = Observable.FromEventPattern<BodyIndexFrameArrivedEventArgs>(
 			    h => _bodyIndexFrameReader.FrameArrived += h, 
 			    h => { })
-		  .Select(bodyIndexFrameEvent => ReadFrame(bodyIndexFrameEvent, bodyIndexFrameDescription))
-		  .Where(IsValidFrame)
-			.Select(_frameFactory.Build)
-			.Window(WindowSize,1)
-		  .Subscribe(DisplayFrameWindow);
+		    .Select(bodyIndexFrame => ReadBodyIndexFrame(bodyIndexFrame, bodyIndexFrameDescription))
+		    .Where(IsValidFrame);
+
+	    _closeStreamDisposable = bodyIndexFrames.Zip(colourFrames, (bodyIndexFrame, colourFrame) => new { BodyFrame = bodyIndexFrame, ColourFrame = colourFrame })
+					.Select(combinedFrameData => _frameFactory.Build(combinedFrameData.BodyFrame, combinedFrameData.ColourFrame))
+					.Window(WindowSize,1)
+					.Subscribe(DisplayFrameWindow);
+
     }
 
 	  private void DisplayFrameWindow(IObservable<Frame> frames)
@@ -68,7 +78,7 @@ namespace SpaceTime
 		  return x.Length > 0;
 	  }
 
-	  private static byte[] ReadFrame(EventPattern<BodyIndexFrameArrivedEventArgs> bodyIndexFrameEvent, FrameDescription bodyIndexFrameDescription)
+	  private static byte[] ReadBodyIndexFrame(EventPattern<BodyIndexFrameArrivedEventArgs> bodyIndexFrameEvent, FrameDescription bodyIndexFrameDescription)
 	  {
 		  using (var bodyIndexFrame = bodyIndexFrameEvent.EventArgs.FrameReference.AcquireFrame())
 		  {
@@ -80,7 +90,19 @@ namespace SpaceTime
 		  }
 	  }
 
-	  public event PropertyChangedEventHandler PropertyChanged;
+	  private static byte[] ReadColourFrame(EventPattern<ColorFrameArrivedEventArgs> colourFrameEvent, FrameDescription colourFrameDescription)
+	  {
+			using (var colourFrame = colourFrameEvent.EventArgs.FrameReference.AcquireFrame())
+			{
+				if (colourFrame == null) return new byte[0];
+				var frameArraySize = colourFrameDescription.Width * colourFrameDescription.Height;
+				var frameData = new byte[frameArraySize];
+				colourFrame.CopyConvertedFrameDataToArray(frameData, ColorImageFormat.Rgba);
+				return frameData;
+			}
+		}
+
+		public event PropertyChangedEventHandler PropertyChanged;
 
     public ImageSource ImageSource => _bodyIndexBitmap;
 
